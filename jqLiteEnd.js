@@ -6,6 +6,10 @@ function Base(selector){	//构造函数获取所有的dom节点，引入下面�
 		this.query(selector); 
 	}	
 }
+//封装方法获取 elements
+Base.prototype.query=function(selector){	//用原型链的方式给构造函数绑定一个qurey的方法来实现获取dom节点的功能；
+	this.elements=document.querySelectorAll(selector);	
+}
 function $(selector){			//封装$方法，方法里面反回一个实例化构造函数的方法，new Base（）；
 	return new Base(selector);
 }
@@ -80,13 +84,8 @@ $.get=function(api,success,err){	//获取ajax数据的方法
 	})
 }
 
-//封装方法获取 elements
-Base.prototype.query=function(selector){	//用原型链的方式给构造函数绑定一个qurey的方法来实现获取dom节点的功能；
-	this.elements=document.querySelectorAll(selector);	
-}
+
 //封装一个find方法，找到当前节点下面的子节点
-
-
 Base.prototype.find=function(el){
 	var allChildElements=[];	/*放所有找到的子元素*/
 	for(var i=0;i<this.elements.length;i++){		
