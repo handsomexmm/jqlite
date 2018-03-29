@@ -1,3 +1,11 @@
+function Base(selector){	//构造函数获取所有的dom节点，引入下面通过原型链绑定的query方法来实现；
+	this.elements=[];		
+	if(typeof(selector)=='object'){		
+		this.elements[0]=selector;    
+	}else{ 		
+		this.query(selector); 
+	}	
+}
 function $(selector){			//封装$方法，方法里面反回一个实例化构造函数的方法，new Base（）；
 	return new Base(selector);
 }
@@ -72,14 +80,6 @@ $.get=function(api,success,err){	//获取ajax数据的方法
 	})
 }
 
-function Base(selector){	//构造函数获取所有的dom节点，引入下面通过原型链绑定的query方法来实现；
-	this.elements=[];		
-	if(typeof(selector)=='object'){		
-		this.elements[0]=selector;    
-	}else{ 		
-		this.query(selector); 
-	}	
-}
 //封装方法获取 elements
 Base.prototype.query=function(selector){	//用原型链的方式给构造函数绑定一个qurey的方法来实现获取dom节点的功能；
 	this.elements=document.querySelectorAll(selector);	
