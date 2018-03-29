@@ -1,7 +1,7 @@
 function Base(selector){	//构造函数获取所有的dom节点，引入下面通过原型链绑定的query方法来实现；
 	this.elements=[];		
 	if(typeof(selector)=='object'){		
-		this.elements[0]=selector;    
+		this.elements[0]=selector;    //当用户传入多个参数时，默认只获取第一个参数对应的dom元素
 	}else{ 		
 		this.query(selector); 
 	}	
