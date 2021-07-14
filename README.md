@@ -1,2 +1,2 @@
-"# jqlite" 
-类似jq库的轻量级框架
+"# jqLight 
+仿jq的轻量级框架
